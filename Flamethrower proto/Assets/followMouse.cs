@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class followMouse : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+
 
     void Update()
     {
@@ -15,7 +15,7 @@ public class followMouse : MonoBehaviour
         Vector3 direction = mousePosition - transform.position;
 
         // Calculate the rotation to look at the mouse
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.y * -1, direction.x * -1) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         // Apply the rotation to the object
