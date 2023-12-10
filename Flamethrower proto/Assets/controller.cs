@@ -7,6 +7,13 @@ public class controller : MonoBehaviour
     public float moveSpeed = 5f;
     public float forceMultiplier = 10f;
 
+    private Vector3 initialPos;
+
+    void Start()
+    {
+        initialPos = transform.position;
+    }
+
     void Update()
     {
         // Check for mouse click
@@ -30,6 +37,11 @@ public class controller : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(horizontalInput, verticalInput, 0f);
         transform.position += movement * moveSpeed * Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            transform.position = initialPos;
+        }
     }
 }
 

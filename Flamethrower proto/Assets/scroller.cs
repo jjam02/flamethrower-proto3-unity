@@ -13,29 +13,29 @@ public class scroller : MonoBehaviour
     {
         // Instantiate the clone and position it just below the original background
         backgroundClone = Instantiate(backgroundPrefab).transform;
-        backgroundClone.position = new Vector2(0f, -10f);
+        backgroundClone.position = new Vector2(0f, 10f);
     }
 
     void Update()
     {
         // Move the original background down based on the scroll speed
-        transform.Translate(Vector2.down * scrollSpeed * Time.deltaTime);
+        transform.Translate(Vector2.up * scrollSpeed * Time.deltaTime);
 
         // Move the clone down as well
-        backgroundClone.Translate(Vector2.down * scrollSpeed * Time.deltaTime);
+        backgroundClone.Translate(Vector2.up * scrollSpeed * Time.deltaTime);
 
         // Check if the original background has moved out of view
-        if (transform.position.y < -10f)
+        if (transform.position.y > 10f)
         {
             // Reset the position to be just below the clone
-            transform.position = new Vector2(0f, backgroundClone.position.y + 10f);
+            transform.position = new Vector2(0f, backgroundClone.position.y - 10f);
         }
 
         // Check if the clone has moved out of view
-        if (backgroundClone.position.y < -10f)
+        if (backgroundClone.position.y > 10f)
         {
             // Reset the position to be just below the original background
-            backgroundClone.position = new Vector2(0f, transform.position.y + 10f);
+            backgroundClone.position = new Vector2(0f, transform.position.y - 10f);
         }
     }
 }
