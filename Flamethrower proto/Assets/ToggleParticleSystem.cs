@@ -24,23 +24,26 @@ public class ToggleParticleSystem : MonoBehaviour
     void Update()
     {
         // Check for mouse click
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             // Start the Particle System only if it's not already playing
-            if (!isParticleSystemPlaying)
-            {
-                particleSystem.Play();
-                isParticleSystemPlaying = true;
-            }
+            // if (!isParticleSystemPlaying)
+            // {
+            //     particleSystem.Play();
+            //     isParticleSystemPlaying = true;
+            // }
+            particleSystem.Play();
         }
-        else
+        else if (Input.GetMouseButtonUp(0))
         {
             // Stop the Particle System only if it's currently playing
-            if (isParticleSystemPlaying)
-            {
-                particleSystem.Stop();
-                isParticleSystemPlaying = false;
-            }
+            // if (isParticleSystemPlaying)
+            // {
+            //     particleSystem.Stop();
+            //     isParticleSystemPlaying = false;
+            // }
+            particleSystem.Clear();
+            particleSystem.Stop();
         }
     }
 }
