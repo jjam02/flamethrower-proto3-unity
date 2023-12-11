@@ -5,25 +5,34 @@ using UnityEngine;
 public class particleCollide : MonoBehaviour
 {
     // Start is called before the first frame update
+    float Health = 50f;
     void Start()
     {
+
         Debug.Log("the console is working");
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        void OnParticleCollision(GameObject other)
-        {
-            // Check if the collision involves an object with the "Enemy" tag
-            if (other.CompareTag("enemy"))
-            {
-                // Your custom behavior when the particle collides with an enemy
-                Debug.Log("Particle collided with enemy: " + other.name);
 
-                // Add your custom logic here, such as damaging the enemy, triggering effects, etc.
-                // Example: other.GetComponent<EnemyScript>().TakeDamage();
+
+    void OnParticleCollision(GameObject other)
+    {
+        // Check if the collision involves an object with the "Enemy" tag
+        if (other.CompareTag("enemy"))
+        {
+            // Your custom behavior when the particle collides with an enemy
+            Debug.Log("Particle collided with enemy: " + other.name);
+            Health -= 0.5f;
+
+            if (Health <= 0)
+            {
+                other.transform.position = new Vector3(1000f, 1000f, 1000f);
+                Health = 50f;
             }
+
+
+
+
         }
     }
 }

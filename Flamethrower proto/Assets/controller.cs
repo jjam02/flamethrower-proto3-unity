@@ -45,25 +45,3 @@ public class controller : MonoBehaviour
     }
 }
 
-// public class controller : MonoBehaviour
-// {
-//     // Start is called before the first frame update
-//     public Rigidbody2D rb;
-//     public float moveSpeed;
-//     public Vector2 forceToApply;
-//     public Vector2 PlayerInput;
-//     void Start()
-//     {
-
-//     }
-
-//     // Update is called once per frame
-//     void Update()
-//     {
-//         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-//         Vector2 moveForce = input * moveSpeed;
-//         moveForce += forceToApply;
-
-//         rb.velocity = moveForce;
-//     }
-// }
