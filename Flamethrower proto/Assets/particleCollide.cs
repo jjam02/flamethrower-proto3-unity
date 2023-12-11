@@ -7,7 +7,7 @@ public class particleCollide : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Debug.Log("the console is working");
     }
 
     // Update is called once per frame
