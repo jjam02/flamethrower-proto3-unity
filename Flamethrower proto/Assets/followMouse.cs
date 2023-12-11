@@ -9,7 +9,9 @@ public class followMouse : MonoBehaviour
     void Update()
     {
         // Get the mouse position in world coordinates
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Debug.Log(Input.mousePosition);
 
         // Calculate the direction from the object to the mouse position
         Vector3 direction = mousePosition - transform.position;
