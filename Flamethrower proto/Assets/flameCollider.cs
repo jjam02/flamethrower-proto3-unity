@@ -5,7 +5,7 @@ using UnityEngine;
 public class flameCollider : MonoBehaviour
 {
     // Start is called before the first frame update
-    float Health = 3f;
+    float Health = 1f;
     // Define the bounds
     float minX = -8.34f;
     float maxX = 8.26f;
@@ -26,15 +26,16 @@ public class flameCollider : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("enemy"))
         {
-            Debug.Log("I COLLIDED ");
-            Health -= 0.5f;
+
+            Health -= 1f;
             if (Health <= 0)
             {
+
                 float randomX = Random.Range(minX, maxX);
                 float randomY = Random.Range(minY, maxY);
 
                 collision.transform.position = new Vector3(randomX, randomY, 0f);
-                Health = 50f;
+                Health = 1f;
             }
         }
     }
