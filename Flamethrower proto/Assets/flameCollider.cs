@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class flameCollider : MonoBehaviour
 {
@@ -11,15 +12,17 @@ public class flameCollider : MonoBehaviour
     float maxX = 8.26f;
     float minY = -3.44f;
     float maxY = 3.57f;
+    [SerializeField] private TMP_Text scoreUI;
+    private int score;
     void Start()
     {
-
+        score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        scoreUI.text = "Score: " + score;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -36,6 +39,7 @@ public class flameCollider : MonoBehaviour
 
                 collision.transform.position = new Vector3(randomX, randomY, 0f);
                 Health = 1f;
+                score++;
             }
         }
     }
