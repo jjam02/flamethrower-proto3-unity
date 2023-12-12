@@ -6,18 +6,17 @@ using UnityEngine;
 
 public class ToggleParticleSystem : MonoBehaviour
 {
-    private ParticleSystem particleSystem;
-    private bool isParticleSystemPlaying = false;
+
 
     void Start()
     {
         // Get the ParticleSystem component on this GameObject
-        particleSystem = GetComponent<ParticleSystem>();
+
 
         // Ensure the Particle System starts in the off state
-        if (particleSystem != null)
+        if (GetComponent<ParticleSystem>() != null)
         {
-            particleSystem.Stop();
+            GetComponent<ParticleSystem>().Stop();
         }
     }
 
@@ -32,7 +31,7 @@ public class ToggleParticleSystem : MonoBehaviour
             //     particleSystem.Play();
             //     isParticleSystemPlaying = true;
             // }
-            particleSystem.Play();
+            GetComponent<ParticleSystem>().Play();
         }
         else if (Input.GetMouseButtonUp(0))
         {
@@ -42,8 +41,8 @@ public class ToggleParticleSystem : MonoBehaviour
             //     particleSystem.Stop();
             //     isParticleSystemPlaying = false;
             // }
-            particleSystem.Clear();
-            particleSystem.Stop();
+            GetComponent<ParticleSystem>().Clear();
+            GetComponent<ParticleSystem>().Stop();
         }
     }
 }

@@ -13,6 +13,7 @@ public class flameCollider : MonoBehaviour
     float minY = -3.44f;
     float maxY = 3.57f;
     [SerializeField] private TMP_Text scoreUI;
+    [SerializeField] private GameObject[] enemy;
     private int score;
     void Start()
     {
@@ -23,6 +24,15 @@ public class flameCollider : MonoBehaviour
     void Update()
     {
         scoreUI.text = "Score: " + score;
+        if (score >= 10)
+        {
+            enemy[1].SetActive(true);
+        }
+
+        if (score >= 20)
+        {
+            enemy[2].SetActive(true);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
